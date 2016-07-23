@@ -1,0 +1,2 @@
+json.extract! ride, :id, :brand, :request_time, :est_wait_time, :pick_time, :pick_pax, :pick_address, :drop_address, :est_duration_at_pick, :picks_en_route, :drops_en_route, :cost_before_discounts, :cost_after_discounts, :actual_wait_time, :actual_duration, :user_id, :created_at, :updated_at
+json.url ride_url(ride, format: :json)

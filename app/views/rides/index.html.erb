@@ -1,0 +1,53 @@
+<h1>Listing rides</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Brand</th>
+      <th>Request time</th>
+      <th>Est wait time</th>
+      <th>Pick time</th>
+      <th>Pick pax</th>
+      <th>Pick address</th>
+      <th>Drop address</th>
+      <th>Est duration at pick</th>
+      <th>Picks en route</th>
+      <th>Drops en route</th>
+      <th>Cost before discounts</th>
+      <th>Cost after discounts</th>
+      <th>Actual wait time</th>
+      <th>Actual duration</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rides.each do |ride| %>
+      <tr>
+        <td><%= ride.brand %></td>
+        <td><%= ride.request_time %></td>
+        <td><%= ride.est_wait_time %></td>
+        <td><%= ride.pick_time %></td>
+        <td><%= ride.pick_pax %></td>
+        <td><%= ride.pick_address %></td>
+        <td><%= ride.drop_address %></td>
+        <td><%= ride.est_duration_at_pick %></td>
+        <td><%= ride.picks_en_route %></td>
+        <td><%= ride.drops_en_route %></td>
+        <td><%= ride.cost_before_discounts %></td>
+        <td><%= ride.cost_after_discounts %></td>
+        <td><%= ride.actual_wait_time %></td>
+        <td><%= ride.actual_duration %></td>
+        <td><%= ride.user %></td>
+        <td><%= link_to 'Show', ride %></td>
+        <td><%= link_to 'Edit', edit_ride_path(ride) %></td>
+        <td><%= link_to 'Destroy', ride, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ride', new_ride_path %>

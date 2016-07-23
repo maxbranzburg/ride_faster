@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Brand:</strong>
+  <%= @ride.brand %>
+</p>
+
+<p>
+  <strong>Request time:</strong>
+  <%= @ride.request_time %>
+</p>
+
+<p>
+  <strong>Est wait time:</strong>
+  <%= @ride.est_wait_time %>
+</p>
+
+<p>
+  <strong>Pick time:</strong>
+  <%= @ride.pick_time %>
+</p>
+
+<p>
+  <strong>Pick pax:</strong>
+  <%= @ride.pick_pax %>
+</p>
+
+<p>
+  <strong>Pick address:</strong>
+  <%= @ride.pick_address %>
+</p>
+
+<p>
+  <strong>Drop address:</strong>
+  <%= @ride.drop_address %>
+</p>
+
+<p>
+  <strong>Est duration at pick:</strong>
+  <%= @ride.est_duration_at_pick %>
+</p>
+
+<p>
+  <strong>Picks en route:</strong>
+  <%= @ride.picks_en_route %>
+</p>
+
+<p>
+  <strong>Drops en route:</strong>
+  <%= @ride.drops_en_route %>
+</p>
+
+<p>
+  <strong>Cost before discounts:</strong>
+  <%= @ride.cost_before_discounts %>
+</p>
+
+<p>
+  <strong>Cost after discounts:</strong>
+  <%= @ride.cost_after_discounts %>
+</p>
+
+<p>
+  <strong>Actual wait time:</strong>
+  <%= @ride.actual_wait_time %>
+</p>
+
+<p>
+  <strong>Actual duration:</strong>
+  <%= @ride.actual_duration %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @ride.user %>
+</p>
+
+<%= link_to 'Edit', edit_ride_path(@ride) %> |
+<%= link_to 'Back', rides_path %>

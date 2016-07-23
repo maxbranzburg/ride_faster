@@ -1,0 +1,77 @@
+<%= form_for(@ride) do |f| %>
+  <% if @ride.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ride.errors.count, "error") %> prohibited this ride from being saved:</h2>
+
+      <ul>
+      <% @ride.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :brand %><br>
+    <%= f.text_field :brand %>
+  </div>
+  <div class="field">
+    <%= f.label :request_time %><br>
+    <%= f.datetime_select :request_time %>
+  </div>
+  <div class="field">
+    <%= f.label :est_wait_time %><br>
+    <%= f.number_field :est_wait_time %>
+  </div>
+  <div class="field">
+    <%= f.label :pick_time %><br>
+    <%= f.datetime_select :pick_time %>
+  </div>
+  <div class="field">
+    <%= f.label :pick_pax %><br>
+    <%= f.number_field :pick_pax %>
+  </div>
+  <div class="field">
+    <%= f.label :pick_address %><br>
+    <%= f.text_field :pick_address %>
+  </div>
+  <div class="field">
+    <%= f.label :drop_address %><br>
+    <%= f.text_field :drop_address %>
+  </div>
+  <div class="field">
+    <%= f.label :est_duration_at_pick %><br>
+    <%= f.number_field :est_duration_at_pick %>
+  </div>
+  <div class="field">
+    <%= f.label :picks_en_route %><br>
+    <%= f.number_field :picks_en_route %>
+  </div>
+  <div class="field">
+    <%= f.label :drops_en_route %><br>
+    <%= f.number_field :drops_en_route %>
+  </div>
+  <div class="field">
+    <%= f.label :cost_before_discounts %><br>
+    <%= f.text_field :cost_before_discounts %>
+  </div>
+  <div class="field">
+    <%= f.label :cost_after_discounts %><br>
+    <%= f.text_field :cost_after_discounts %>
+  </div>
+  <div class="field">
+    <%= f.label :actual_wait_time %><br>
+    <%= f.text_field :actual_wait_time %>
+  </div>
+  <div class="field">
+    <%= f.label :actual_duration %><br>
+    <%= f.text_field :actual_duration %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
