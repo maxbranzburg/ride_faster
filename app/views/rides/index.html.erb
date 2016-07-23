@@ -1,30 +1,33 @@
-<h1>Listing rides</h1>
-
-<table>
+<%- model_class = Ride -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Ride %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Brand</th>
-      <th>Request time</th>
-      <th>Est wait time</th>
-      <th>Pick time</th>
-      <th>Pick pax</th>
-      <th>Pick address</th>
-      <th>Drop address</th>
-      <th>Est duration at pick</th>
-      <th>Picks en route</th>
-      <th>Drops en route</th>
-      <th>Cost before discounts</th>
-      <th>Cost after discounts</th>
-      <th>Actual wait time</th>
-      <th>Actual duration</th>
-      <th>User</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:brand) %></th>
+      <th><%= model_class.human_attribute_name(:request_time) %></th>
+      <th><%= model_class.human_attribute_name(:est_wait_time) %></th>
+      <th><%= model_class.human_attribute_name(:pick_time) %></th>
+      <th><%= model_class.human_attribute_name(:pick_pax) %></th>
+      <th><%= model_class.human_attribute_name(:pick_address) %></th>
+      <th><%= model_class.human_attribute_name(:drop_address) %></th>
+      <th><%= model_class.human_attribute_name(:est_duration_at_pick) %></th>
+      <th><%= model_class.human_attribute_name(:picks_en_route) %></th>
+      <th><%= model_class.human_attribute_name(:drops_en_route) %></th>
+      <th><%= model_class.human_attribute_name(:cost_before_discounts) %></th>
+      <th><%= model_class.human_attribute_name(:cost_after_discounts) %></th>
+      <th><%= model_class.human_attribute_name(:actual_wait_time) %></th>
+      <th><%= model_class.human_attribute_name(:actual_duration) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @rides.each do |ride| %>
       <tr>
+        <td><%= ride.id %></td>
         <td><%= ride.brand %></td>
         <td><%= ride.request_time %></td>
         <td><%= ride.est_wait_time %></td>
@@ -39,15 +42,21 @@
         <td><%= ride.cost_after_discounts %></td>
         <td><%= ride.actual_wait_time %></td>
         <td><%= ride.actual_duration %></td>
-        <td><%= ride.user %></td>
-        <td><%= link_to 'Show', ride %></td>
-        <td><%= link_to 'Edit', edit_ride_path(ride) %></td>
-        <td><%= link_to 'Destroy', ride, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l ride.created_at, format: :long %></td>
+        <td>
+          <%= link_to ride_path(ride), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to ride_path(ride), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Ride', new_ride_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_ride_path,
+            :class => 'btn btn-primary' %>
