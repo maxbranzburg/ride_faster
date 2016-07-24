@@ -1,7 +1,7 @@
 class RidesController < ApplicationController
 
   #->Prelang (scaffolding:rails/scope_to_user)
-  before_filter :require_user_signed_in, only: [:new, :edit, :create, :update, :destroy]
+  # before_filter :require_user_signed_in, only: [:new, :edit, :create, :update, :destroy]
 
   before_action :set_ride, only: [:show, :edit, :update, :destroy]
 
@@ -33,8 +33,12 @@ class RidesController < ApplicationController
 
     respond_to do |format|
       if @ride.save
-        format.html { redirect_to @ride, notice: 'Ride was successfully created.' }
-        format.json { render :show, status: :created, location: @ride }
+
+        format.html { redirect_to rides_url, notice: 'Ride was successfully created.' }
+        format.json { head :no_content }
+
+        # format.html { redirect_to @ride, notice: 'Ride was successfully created.' }
+        # format.json { render :show, status: :created, location: @ride }
       else
         format.html { render :new }
         format.json { render json: @ride.errors, status: :unprocessable_entity }

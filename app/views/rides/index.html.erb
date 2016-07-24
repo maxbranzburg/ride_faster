@@ -1,8 +1,12 @@
 <%- model_class = Ride -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => Ride %></h1>
-</div>
-<table class="table table-striped">
+<!-- <div class="page-header" align="center">
+  <h1><%=t '.title', :default => "Enter a new Ride" %></h1>
+</div> -->
+
+
+
+
+<!-- <table class="table table-striped">
   <thead>
     <tr>
       <th>ID</th>
@@ -55,8 +59,16 @@
       </tr>
     <% end %>
   </tbody>
-</table>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
+</table> -->
+<div align="center">
+  <%= link_to t('.new', :default => "Enter a new ride"),
             new_ride_path,
             :class => 'btn btn-primary' %>
+</div>
+
+<div align="center">
+  <br>
+    <%= "Insanely Valuable Information Will Go Here" %>
+  </br>
+</div>
+
