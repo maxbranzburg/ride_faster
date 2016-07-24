@@ -1,111 +1,117 @@
 <%= form_for @ride, :html => { :class => 'form-horizontal form-model' } do |f| %>
-  <align="center">
-  <div class="form-group">
-    <%= f.label "Ride Type", :class => 'control-label col-xs-6' %>
-    <div class="col-xs-6">
-      <%= f.select :brand, [['UberPool','UberPool'],['Lyft Line','Lyft Line'],['UberX','UberX'],['Lyft Classic','Lyft Classic']] %>
+
+  <div class="container">
+
+    <div class="form-group">
+      <%= f.label "Ride Type", :class => 'control-label col-xs-6' %>
+      <div class="col-xs-6">
+        <%= f.select :brand, [['UberPool','UberPool'],['Lyft Line','Lyft Line'],['UberX','UberX'],['Lyft Classic','Lyft Classic']] %>
+      </div>
     </div>
-  </div>
-  
-  <div class="form-group">
-    <%= f.label "What Time Did You Request?", :class => 'control-label col-xs-6' %>
-    <div class="col-xs-6">
-      <%= f.datetime_select :request_time, :class => 'text-field form-control' %>
+    
+    <div class="form-group">
+      <%= f.label "What Time Did You Request?", :class => 'control-label col-xs-6' %>
+      <div class="col-xs-6">
+        <%= f.datetime_select :request_time, :class => 'text-field form-control' %>
+      </div>
     </div>
-  </div>
 
 
-  <div class="form-group">
-    <%= f.label "What Was the App's Estimated Wait Time to Pickup", :class => 'control-label col-xs-6' %>
-    <div class="col-xs-6">
-      <%= f.select :est_wait_time, [['1 minute',1],['2 minutes',2],['3 minutes',3],['4 minutes',4],['5 minutes',5],['6 minutes',6],['7 minutes',7],['8 minutes',8],['9 minutes',9],['10 minutes',10],['11 minutes',11],['12 minutes',12],['13 minutes',13],['14 minutes',14],['15 minutes',15]] %>
+    <div class="form-group">
+      <%= f.label "What Was the App's Estimated Wait Time to Pickup", :class => 'control-label col-xs-6' %>
+      <div class="col-xs-6">
+        <%= f.select :est_wait_time, [['1 minute',1],['2 minutes',2],['3 minutes',3],['4 minutes',4],['5 minutes',5],['6 minutes',6],['7 minutes',7],['8 minutes',8],['9 minutes',9],['10 minutes',10],['11 minutes',11],['12 minutes',12],['13 minutes',13],['14 minutes',14],['15 minutes',15]] %>
+      </div>
     </div>
-  </div>
 
 
-  <div class="form-group">
-    <%= f.label "When Did the Ride Actually Arrive to Pick You Up?", :class => 'control-label col-xs-6' %>
-    <div class="col-xs-6">
-      <%= f.datetime_select :pick_time, :class => 'text-field form-control' %>
+    <div class="form-group">
+      <%= f.label "When Did the Ride Actually Arrive to Pick You Up?", :class => 'control-label col-xs-6' %>
+      <div class="col-xs-6">
+        <%= f.datetime_select :pick_time, :class => 'text-field form-control' %>
+      </div>
     </div>
-  </div>
 
 
 
-  <div class="form-group">
-    <%= f.label "How Many People Did You Request For?", :class => 'control-label col-xs-6' %>
-    <div class="col-xs-6">
-      <%= radio_button_tag(:pick_pax, "1") %>
-      <%= label_tag(:pick_pax_1, 1) %>
-      
-      <%= radio_button_tag(:pick_pax, "2") %>
-      <%= label_tag(:pick_pax_2, 2) %>
+    <div class="form-group">
+      <%= f.label "How Many People Did You Request For?", :class => 'control-label col-xs-6' %>
+      <div class="col-xs-6">
+        <%= radio_button_tag(:pick_pax, "1") %>
+        <%= label_tag(:pick_pax_1, 1) %>
+        
+        <%= radio_button_tag(:pick_pax, "2") %>
+        <%= label_tag(:pick_pax_2, 2) %>
 
+      </div>
     </div>
-  </div>
 
 
-  <div class="form-group">
-    <%= f.label "What Was Your Pickup Address (Number, Street, City, State)?", :class => 'control-label col-xs-6' %>
-    <div class="col-xs-6">
-      <%= f.text_field :pick_address, value: "1317 Leavenworth Street, San Francisco, CA", :class => 'text-field form-control' %>
+    <div class="form-group">
+      <%= f.label "What Was Your Pickup Address (Number, Street, City, State)?", :class => 'control-label col-xs-6' %>
+      <div class="col-xs-6">
+        <%= f.text_field :pick_address, value: "1317 Leavenworth Street, San Francisco, CA", :class => 'text-field form-control' %>
+      </div>
     </div>
-  </div>
 
 
-  <div class="form-group">
-    <%= f.label "What Was Your Dropoff Address (Number, Street, City, State)?", :class => 'control-label col-xs-6' %>
-    <div class="col-xs-6">
-      <%= f.text_field :drop_address, value: "2298 Green Street, San Francisco, CA", :class => 'text-field form-control' %>
+    <div class="form-group">
+      <%= f.label "What Was Your Dropoff Address (Number, Street, City, State)?", :class => 'control-label col-xs-6' %>
+      <div class="col-xs-6">
+        <%= f.text_field :drop_address, value: "2298 Green Street, San Francisco, CA", :class => 'text-field form-control' %>
+      </div>
     </div>
-  </div>
 
 
-  <div class="form-group">
-    <%= f.label "How Long Did the App Say Your Ride Would Take When You First Got Picked Up?", :class => 'control-label col-xs-6' %>
-    <div class="col-xs-6">
-      <%= f.select :est_duration_at_pick, [['5 minutes',5],['6 minutes',6],['7 minutes',7],['8 minutes',8],['9 minutes',9],['10 minutes',10],['11 minutes',11],['12 minutes',12],['13 minutes',13],['14 minutes',14],['15 minutes',15],['16 minutes',16],['17 minutes',17],['18 minutes',18],['19 minutes',19],['20 minutes',20],['21 minutes',21],['22 minutes',22],['23 minutes',23],['24 minutes',24],['25 minutes',25],['26 minutes',26],['27 minutes',27],['28 minutes',28],['29 minutes',29],['30 minutes',30],['31 minutes',31],['32 minutes',32],['33 minutes',33],['34 minutes',34],['35 minutes',35],['36 minutes',36],['37 minutes',37],['38 minutes',38],['39 minutes',39],['40 minutes',40]] %>
+    <div class="form-group">
+      <%= f.label "How Long Did the App Say Your Ride Would Take When You First Got Picked Up?", :class => 'control-label col-xs-6' %>
+      <div class="col-xs-6">
+        <%= f.select :est_duration_at_pick, [['5 minutes',5],['6 minutes',6],['7 minutes',7],['8 minutes',8],['9 minutes',9],['10 minutes',10],['11 minutes',11],['12 minutes',12],['13 minutes',13],['14 minutes',14],['15 minutes',15],['16 minutes',16],['17 minutes',17],['18 minutes',18],['19 minutes',19],['20 minutes',20],['21 minutes',21],['22 minutes',22],['23 minutes',23],['24 minutes',24],['25 minutes',25],['26 minutes',26],['27 minutes',27],['28 minutes',28],['29 minutes',29],['30 minutes',30],['31 minutes',31],['32 minutes',32],['33 minutes',33],['34 minutes',34],['35 minutes',35],['36 minutes',36],['37 minutes',37],['38 minutes',38],['39 minutes',39],['40 minutes',40]] %>
+      </div>
     </div>
-  </div>
 
 
-  <div class="form-group">
-    <%= f.label "How Many People Were Picked Up During Your Ride?", :class => 'control-label col-xs-6' %>
-    <div class="col-xs-6">
-      <%= f.select :picks_en_route, [['0',0],['1',1],['2',2],['3',3]] %>
+    <div class="form-group">
+      <%= f.label "How Many People Were Picked Up During Your Ride?", :class => 'control-label col-xs-6' %>
+      <div class="col-xs-6">
+        <%= f.select :picks_en_route, [['0',0],['1',1],['2',2],['3',3]] %>
+      </div>
     </div>
-  </div>
 
 
-  <div class="form-group">
-    <%= f.label "How Many People Were Dropped Off During Your Ride?", :class => 'control-label col-xs-6' %>
-    <div class="col-xs-6">
-      <%= f.select :drops_en_route, [['0',0],['1',1],['2',2],['3',3]] %>
+    <div class="form-group">
+      <%= f.label "How Many People Were Dropped Off During Your Ride?", :class => 'control-label col-xs-6' %>
+      <div class="col-xs-6">
+        <%= f.select :drops_en_route, [['0',0],['1',1],['2',2],['3',3]] %>
+      </div>
     </div>
-  </div>
 
 
-  <div class="form-group">
-    <%= f.label "How Much Did Your Ride Cost (Before Discounts)?", :class => 'control-label col-xs-6' %>
-    <div class="col-xs-6">
-        <%= f.text_field :cost_before_discounts, value: '$0.00', :class => 'text-field form-control' %>
+    <div class="form-group">
+      <%= f.label "How Much Did Your Ride Cost (Before Discounts)?", :class => 'control-label col-xs-6' %>
+      <div class="col-xs-6">
+          <%= f.text_field :cost_before_discounts, value: '$0.00', :class => 'text-field form-control' %>
+      </div>
     </div>
-  </div>
 
 
-  <div class="form-group">
-    <%= f.label "How Much Did Your Ride Cost (After Discounts)?", :class => 'control-label col-xs-6' %>
-    <div class="col-xs-6">
-        <%= f.text_field :cost_after_discounts, value: '$0.00', :class => 'text-field form-control' %>
+    <div class="form-group">
+      <%= f.label "How Much Did Your Ride Cost (After Discounts)?", :class => 'control-label col-xs-6' %>
+      <div class="col-xs-6">
+          <%= f.text_field :cost_after_discounts, value: '$0.00', :class => 'text-field form-control' %>
+      </div>
     </div>
-  </div>
 
 
-  <div class="form-group">
-    <div class='col-md-offset-6 col-xs-6'>
-      <%= f.submit "Submit Ride Info", :class => 'btn btn-primary' %>
-      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                  rides_path, :class => 'btn btn-default' %>
+    <div class="form-group">
+      <div class='col-xs-12' align="center">
+        <%= f.submit "Submit Ride Info", :class => 'btn btn-primary' %>
+        <br><br>
+        <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                    rides_path, :class => 'btn btn-default' %>
+        </br>
+      </div>
     </div>
+
   </div>
 <% end %>
