@@ -4,7 +4,7 @@ class RidesController < ApplicationController
   # before_filter :require_user_signed_in, only: [:new, :edit, :create, :update, :destroy]
 
   before_action :set_ride, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /rides
   # GET /rides.json
   def index
@@ -33,7 +33,6 @@ class RidesController < ApplicationController
 
     respond_to do |format|
       if @ride.save
-
         format.html { redirect_to rides_url, notice: 'Ride was successfully created.' }
         format.json { head :no_content }
 
@@ -78,6 +77,6 @@ class RidesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ride_params
-      params.require(:ride).permit(:brand, :request_time, :est_wait_time, :pick_time, :pick_pax, :pick_address, :drop_address, :est_duration_at_pick, :picks_en_route, :drops_en_route, :cost_before_discounts, :cost_after_discounts, :actual_wait_time, :actual_duration, :user_id)
+      params.require(:ride).permit(:brand, :request_time, :est_wait_time, :pick_time, :pick_pax, :pick_address, :drop_address, :est_duration_at_pick, :picks_en_route, :drops_en_route, :drop_time, :cost_before_discounts, :cost_after_discounts, :actual_wait_time, :actual_duration, :user_id)
     end
 end

@@ -33,16 +33,10 @@
     </div>
 
 
-
     <div class="form-group">
       <%= f.label "How Many People Did You Request For?", :class => 'control-label col-xs-6' %>
       <div class="col-xs-6">
-        <%= radio_button_tag(:pick_pax, "1") %>
-        <%= label_tag(:pick_pax_1, 1) %>
-        
-        <%= radio_button_tag(:pick_pax, "2") %>
-        <%= label_tag(:pick_pax_2, 2) %>
-
+        <%= f.select :pick_pax, [['0',0],['1',1]] %>
       </div>
     </div>
 
@@ -88,17 +82,25 @@
 
 
     <div class="form-group">
-      <%= f.label "How Much Did Your Ride Cost (Before Discounts)?", :class => 'control-label col-xs-6' %>
+      <%= f.label "When Did You Arrive at Your Destination?", :class => 'control-label col-xs-6' %>
       <div class="col-xs-6">
-          <%= f.text_field :cost_before_discounts, value: '$0.00', :class => 'text-field form-control' %>
+        <%= f.datetime_select :drop_time, :class => 'text-field form-control' %>
       </div>
     </div>
 
 
     <div class="form-group">
-      <%= f.label "How Much Did Your Ride Cost (After Discounts)?", :class => 'control-label col-xs-6' %>
+      <%= f.label "How Much Did Your Ride Cost Before Discounts ($)?", :class => 'control-label col-xs-6' %>
       <div class="col-xs-6">
-          <%= f.text_field :cost_after_discounts, value: '$0.00', :class => 'text-field form-control' %>
+          <%= f.number_field :cost_before_discounts, :step => 0.01, :class => 'text-field form-control' %>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <%= f.label "How Much Did Your Ride Cost After Discounts ($)?", :class => 'control-label col-xs-6' %>
+      <div class="col-xs-6">
+          <%= f.number_field :cost_after_discounts, :step => 0.01, :class => 'text-field form-control' %>
       </div>
     </div>
 

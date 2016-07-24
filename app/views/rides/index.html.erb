@@ -5,8 +5,19 @@
 
 
 
+<div align="center">
+  <%= link_to t('.new', :default => "Enter a new ride"),
+            new_ride_path,
+            :class => 'btn btn-primary' %>
+</div>
 
-<!-- <table class="table table-striped">
+<div align="center">
+  <br>
+    <%= "Information About Average Wait and Ride Times Will Go Here" %>
+  </br>
+</div>
+
+<table class="table table-striped">
   <thead>
     <tr>
       <th>ID</th>
@@ -20,6 +31,7 @@
       <th><%= model_class.human_attribute_name(:est_duration_at_pick) %></th>
       <th><%= model_class.human_attribute_name(:picks_en_route) %></th>
       <th><%= model_class.human_attribute_name(:drops_en_route) %></th>
+      <th><%= model_class.human_attribute_name(:drop_time) %></th>
       <th><%= model_class.human_attribute_name(:cost_before_discounts) %></th>
       <th><%= model_class.human_attribute_name(:cost_after_discounts) %></th>
       <th><%= model_class.human_attribute_name(:actual_wait_time) %></th>
@@ -42,6 +54,7 @@
         <td><%= ride.est_duration_at_pick %></td>
         <td><%= ride.picks_en_route %></td>
         <td><%= ride.drops_en_route %></td>
+        <td><%= ride.drop_time %></td>
         <td><%= ride.cost_before_discounts %></td>
         <td><%= ride.cost_after_discounts %></td>
         <td><%= ride.actual_wait_time %></td>
@@ -59,16 +72,5 @@
       </tr>
     <% end %>
   </tbody>
-</table> -->
-<div align="center">
-  <%= link_to t('.new', :default => "Enter a new ride"),
-            new_ride_path,
-            :class => 'btn btn-primary' %>
-</div>
-
-<div align="center">
-  <br>
-    <%= "Information About Average Wait and Ride Times Will Go Here" %>
-  </br>
-</div>
+</table>
 
