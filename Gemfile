@@ -47,4 +47,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'validates_formatting_of'
 gem 'tzinfo-data'
+
+gem 'rails_12factor'
+
 # gem 'autonumeric-rails'
